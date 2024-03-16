@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('region');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('region')->constrained();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -28,6 +28,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('blacklist_user');
+        Schema::dropIfExists('follow_user');
+        Schema::dropIfExists('messages');
+        Schema::dropIfExists('sanctions');
+        Schema::dropIfExists('chat_user');
         Schema::dropIfExists('users');
     }
 };

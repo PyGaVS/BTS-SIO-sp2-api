@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('follow_user', function (Blueprint $table) {
             $table->id();
-            $table->string('purpose');
             $table->string('content');
-            $table->integer('importance_rate');
-            $table->foreignId('message_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('followed_user_id')->constrained('users');
+            $table->unique(['user_id', 'followed_user_id']);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reports');
+        //
     }
 };

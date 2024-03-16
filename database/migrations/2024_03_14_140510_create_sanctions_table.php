@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('sanctions', function (Blueprint $table) {
             $table->id();
-            $table->string('purpose');
-            $table->string('content');
-            $table->integer('importance_rate');
-            $table->foreignId('message_id')->constrained();
+            $table->integer('kindness_score');
+            $table->datetime('start_ban_time');
+            $table->datetime('end_ban_time');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('report_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('sanctions');
     }
 };
