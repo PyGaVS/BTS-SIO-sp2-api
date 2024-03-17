@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_hide_message', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('message_id')->constrained();
+        Schema::create('user_like_message', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('message_id')->constrained()->onDelete('cascade');
             $table->unique(['user_id', 'message_id']);
             $table->timestamps();
         });
