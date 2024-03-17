@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blacklist_user', function (Blueprint $table) {
-            $table->id();
-            $table->string('content');
+        Schema::create('user_blacklist_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('blacklist_user_id')->constrained('users');
             $table->unique(['user_id', 'blacklist_user_id']);

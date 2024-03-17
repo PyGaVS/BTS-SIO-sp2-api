@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Region;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,15 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Region::factory()->create([
-            'name' => 'EUR'
-        ]);
-         \App\Models\User::factory(10)->create();
-         \App\Models\User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-             'password' => '12345678',
-             'region' => 1,
+         $this->call([
+             RegionSeeder::class,
+             UserSeeder::class,
          ]);
     }
 }

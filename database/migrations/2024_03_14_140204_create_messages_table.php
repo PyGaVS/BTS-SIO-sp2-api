@@ -25,6 +25,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('user_like_message');
+        Schema::dropIfExists('user_hide_message');
         Schema::dropIfExists('messages');
     }
 };

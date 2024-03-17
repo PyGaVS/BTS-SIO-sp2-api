@@ -28,11 +28,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blacklist_user');
-        Schema::dropIfExists('follow_user');
+        Schema::dropIfExists('user_blacklist_user');
+        Schema::dropIfExists('user_follow_user');
         Schema::dropIfExists('messages');
         Schema::dropIfExists('sanctions');
         Schema::dropIfExists('chat_user');
+        Schema::dropIfExists('user_like_message');
+        Schema::dropIfExists('user_hide_message');
         Schema::dropIfExists('users');
     }
 };
