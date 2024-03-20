@@ -13,14 +13,17 @@ class RegionSeeder extends Seeder
      */
     public function run(): void
     {
-        Region::factory()->create([
-            'name' => 'EUR'
-        ]);
-        Region::factory()->create([
-            'name' => 'USA'
-        ]);
-        Region::factory()->create([
-            'name' => 'ASIA'
-        ]);
+        $csvFile = fopen(base_path("database/data/country.csv"), "r");
+        $firstLine = true;
+        while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
+            if(!$firstLine){
+                $coutry = Region::create([
+                    'name' => $data[1],
+                    'short_name' => $data[0]
+                ]);
+            }
+            $firstLine = false;
+        }
+        fclose($csvFile);
     }
 }
