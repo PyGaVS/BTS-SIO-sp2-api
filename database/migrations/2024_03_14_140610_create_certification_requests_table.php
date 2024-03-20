@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cerification_requests', function (Blueprint $table) {
+        Schema::create('certification_requests', function (Blueprint $table) {
             $table->id();
             $table->string('content');
             $table->integer('min_kindness_score');

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1;
 
-use App\Http\Requests\StoreChatRequest;
-use App\Http\Requests\UpdateChatRequest;
-use App\Models\Chat;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreReportRequest;
+use App\Http\Requests\UpdateReportRequest;
+use App\Models\Report;
 
-class ChatController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class ChatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreChatRequest $request)
+    public function store(StoreReportRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class ChatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Chat $chat)
+    public function show(Report $report)
     {
         //
     }
@@ -43,7 +44,7 @@ class ChatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Chat $chat)
+    public function edit(Report $report)
     {
         //
     }
@@ -51,7 +52,7 @@ class ChatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateChatRequest $request, Chat $chat)
+    public function update(UpdateReportRequest $request, Report $report)
     {
         //
     }
@@ -59,7 +60,7 @@ class ChatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Chat $chat)
+    public function destroy(Report $report)
     {
         //
     }

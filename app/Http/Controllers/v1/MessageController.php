@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1;
 
-use App\Http\Requests\StoreCerificationRequestRequest;
-use App\Http\Requests\UpdateCerificationRequestRequest;
-use App\Models\CerificationRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreMessageRequest;
+use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Message;
 
-class CerificationRequestController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class CerificationRequestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCerificationRequestRequest $request)
+    public function store(StoreMessageRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class CerificationRequestController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CerificationRequest $cerificationRequest)
+    public function show(Message $message)
     {
         //
     }
@@ -43,7 +44,7 @@ class CerificationRequestController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CerificationRequest $cerificationRequest)
+    public function edit(Message $message)
     {
         //
     }
@@ -51,7 +52,7 @@ class CerificationRequestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCerificationRequestRequest $request, CerificationRequest $cerificationRequest)
+    public function update(UpdateMessageRequest $request, Message $message)
     {
         //
     }
@@ -59,7 +60,7 @@ class CerificationRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CerificationRequest $cerificationRequest)
+    public function destroy(Message $message)
     {
         //
     }

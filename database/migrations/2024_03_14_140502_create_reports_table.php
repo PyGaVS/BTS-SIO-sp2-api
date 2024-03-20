@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('content');
             $table->integer('importance_rate');
             $table->foreignId('message_id')->constrained();
+            $table->foreignId('reporter_id')->constrained('users');
             $table->timestamps();
         });
     }

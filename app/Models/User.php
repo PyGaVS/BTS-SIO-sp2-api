@@ -3,7 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Seeders\MessageSeeder;
+use Database\Seeders\SanctionSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -42,4 +46,39 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function region() : HasMany
+    {
+        return $this->hasMany(Region::class);
+    }
+
+    public function chat() : HasMany
+    {
+        return $this->hasMany(Chat::class);
+    }
+
+    public function certification_request() : BelongsTo
+    {
+        return $this->belongsTo(CertificationRequest::class);
+    }
+
+    public function sanction() : BelongsTo
+    {
+        return $this->belongsTo(Sanction::class);
+    }
+
+    public function message() : BelongsTo
+    {
+        return $this->belongsTo(Message::class);
+    }
+
+//    public function () : BelongsTo
+//    {
+//        return $this->belongsTo();
+//    }
+//
+//    public function () : BelongsTo
+//    {
+//        return $this->belongsTo();
+//    }
 }

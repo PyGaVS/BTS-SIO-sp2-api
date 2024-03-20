@@ -16,5 +16,11 @@ class RegionSeeder extends Seeder
         Region::factory()->create([
             'name' => 'EUR'
         ]);
+        Region::factory()->create([
+            'name' => 'USA'
+        ]);
+        Region::factory()->create([
+            'name' => 'ASIA'
+        ]);
     }
 }

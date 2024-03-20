@@ -31,6 +31,7 @@ return new class extends Migration
         Schema::dropIfExists('user_blacklist_user');
         Schema::dropIfExists('user_follow_user');
         Schema::dropIfExists('messages');
+        Schema::dropIfExists('certification_requests');
         Schema::dropIfExists('sanctions');
         Schema::dropIfExists('chat_user');
         Schema::dropIfExists('user_like_message');

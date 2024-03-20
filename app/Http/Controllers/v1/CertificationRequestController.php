@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\v1;
 
-use App\Http\Requests\StoreSanctionRequest;
-use App\Http\Requests\UpdateSanctionRequest;
-use App\Models\Sanction;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCerificationRequestRequest;
+use App\Http\Requests\UpdateCerificationRequestRequest;
+use App\Models\CertificationRequest;
 
-class SanctionController extends Controller
+class CertificationRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class SanctionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSanctionRequest $request)
+    public function store(StoreCerificationRequestRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class SanctionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sanction $sanction)
+    public function show(CertificationRequest $cerificationRequest)
     {
         //
     }
@@ -43,7 +44,7 @@ class SanctionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sanction $sanction)
+    public function edit(CertificationRequest $cerificationRequest)
     {
         //
     }
@@ -51,7 +52,7 @@ class SanctionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSanctionRequest $request, Sanction $sanction)
+    public function update(UpdateCerificationRequestRequest $request, CertificationRequest $cerificationRequest)
     {
         //
     }
@@ -59,7 +60,7 @@ class SanctionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sanction $sanction)
+    public function destroy(CertificationRequest $cerificationRequest)
     {
         //
     }

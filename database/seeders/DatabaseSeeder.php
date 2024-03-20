@@ -17,6 +17,11 @@ class DatabaseSeeder extends Seeder
          $this->call([
              RegionSeeder::class,
              UserSeeder::class,
+             CertificationRequestSeeder::class,
+             SanctionSeeder::class,
+             ReportSeeder::class,
+             ChatSeeder::class,
+             MessageSeeder::class,
          ]);
     }
 }
