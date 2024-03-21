@@ -10,6 +10,11 @@ class CertificationRequest extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'updated_at',
+        'created_at'
+    ];
+
     public function user() : HasMany
     {
         return $this->hasMany(User::class);

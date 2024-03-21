@@ -20,7 +20,8 @@ Route::prefix('v1')->group(function () {
 //    Route::post('operation,' ,[V1\OperationController::class, 'create'])->name('operation');
 
     Route::middleware('auth:sanctum')->group(function () {
-
+        Route::apiResource('region', \App\Http\Controllers\v1\RegionController::class);
+        Route::get('user/{user:id}', [\App\Http\Controllers\v1\UserController::class, 'show']);
     });
 });
 

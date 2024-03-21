@@ -10,7 +10,12 @@ class Chat extends Model
 {
     use HasFactory;
 
+    protected $hidden = [
+        'updated_at',
+        'created_at'
+    ];
+
     public function user() : BelongsToMany {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'chat_user');
     }
 }

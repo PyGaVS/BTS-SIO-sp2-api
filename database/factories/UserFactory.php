@@ -25,15 +25,13 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $name = fake()->unique()->userName();
-        $password = Hash::make('12345678');
-        $region = Region::all()->find(rand(1, 249));
 
         return [
             'username' => $name,
-            'email' => $name.'@gmail.'.strtolower($region->short_name),
+            'email' => $name.'@gmail.com',
             'email_verified_at' => now(),
-            'region' => $region->id,
-            'password' => $password,
+            'region' => rand(1,249),
+            'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
             'kindness_score' => 100
         ];
