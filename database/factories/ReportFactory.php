@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Message;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,7 +17,24 @@ class ReportFactory extends Factory
      */
     public function definition(): array
     {
+        $messages = Message::all();
+        $message = $messages[rand(0, count($messages)-1)];
+        if(substr_count($message->content, 'kys')){
+            $importanceRate = 4;
+        }
+
+        $purposes = [
+            'insult',
+            'spam',
+            'sensitive data',
+            'threat',
+            'sexual assault',
+            'political opinion'
+        ];
         return [
+            'purpose' => $purposes[rand(0, count($purposes)-1)],
+            'message_id' => $message->id,
+            'importance_rate' => $importanceRate ?? 1
         ];
     }
 }
