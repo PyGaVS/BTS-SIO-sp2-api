@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_blacklist_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('blacklist_user_id')->constrained('users');
-            $table->unique(['user_id', 'blacklist_user_id']);
+            $table->foreignId('blacklisted_user_id')->constrained('users');
+            $table->unique(['user_id', 'blacklisted_user_id']);
             $table->timestamps();
         });
     }

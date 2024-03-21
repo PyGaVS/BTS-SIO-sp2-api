@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'region' => rand(1,249),
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
-            'kindness_score' => 100
+            'kindness_score' => rand(50, 300)
         ];
     }
 

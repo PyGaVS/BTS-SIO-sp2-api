@@ -16,10 +16,6 @@ class RegionFactory extends Factory
      */
     public function definition(): array
     {
-        /*
-        $regions_name = fake()->unique()->country();
-        dd($regions_name);
-        */
         return [
         ];
     }

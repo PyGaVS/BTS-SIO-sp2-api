@@ -16,8 +16,13 @@ class MessageFactory extends Factory
      */
     public function definition(): array
     {
+        if(rand(1, 10) == 10){
+            $content = "kys";
+        } else {
+            $content = fake()->realText().' '.fake()->emoji();
+        }
         return [
-            'content' => fake()->word,
+            'content' => $content,
             'user_id' => rand(1, 11),
             'chat_id' => rand(1, 11),
         ];

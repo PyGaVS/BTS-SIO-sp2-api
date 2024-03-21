@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('purpose');
-            $table->string('content');
-            $table->integer('importance_rate');
+            $table->string('content')->default('');
+            $table->integer('importance_rate')->default(1);
             $table->foreignId('message_id')->constrained();
-            $table->foreignId('reporter_id')->constrained('users');
             $table->timestamps();
         });
     }
