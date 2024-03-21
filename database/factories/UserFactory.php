@@ -35,7 +35,7 @@ class UserFactory extends Factory
             'region' => $region->id,
             'password' => $password,
             'remember_token' => Str::random(10),
-            'kindness_score' => 100
+            'kindness_score' => rand(50, 300)
         ];
     }
 
