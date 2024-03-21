@@ -23,8 +23,8 @@ class MessageFactory extends Factory
         }
         return [
             'content' => $content,
-            'user_id' => rand(1, 11),
-            'chat_id' => rand(1, 11),
+            'user_id' => rand(1, 50),
+            'chat_id' => rand(1, 20),
         ];
     }
 }

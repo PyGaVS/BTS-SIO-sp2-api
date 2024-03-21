@@ -35,9 +35,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'email_verified_at',
-        'updated_at',
-        'created_at'
     ];
 
     /**
@@ -50,9 +47,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function region() : BelongsTo
+    public function region() : HasMany
     {
-        return $this->belongsTo(Region::class);
+        return $this->hasMany(Region::class);
     }
 
     public function chat() : HasMany

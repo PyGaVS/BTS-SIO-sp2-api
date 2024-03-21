@@ -31,6 +31,7 @@ class ReportFactory extends Factory
             'sexual assault',
             'political opinion'
         ];
+
         return [
             'purpose' => $purposes[rand(0, count($purposes)-1)],
             'message_id' => $message->id,

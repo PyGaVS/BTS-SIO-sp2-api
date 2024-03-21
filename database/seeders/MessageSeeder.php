@@ -6,6 +6,7 @@ use App\Models\Message;
 use Database\Factories\MessageFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MessageSeeder extends Seeder
 {
@@ -14,6 +15,12 @@ class MessageSeeder extends Seeder
      */
     public function run(): void
     {
-        Message::factory(200)->create();
+        $messages = Message::factory(200)->create();
+        foreach($messages as $message){
+            DB::table('chat_user')->upsert([
+                'chat_id' => $message->chat_id,
+                'user_id' => $message->user_id
+            ], ['chat_id', 'user_id']);
+        }
     }
 }

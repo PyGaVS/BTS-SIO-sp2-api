@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
+
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Sanction>
@@ -16,8 +19,10 @@ class SanctionFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
-            //
+            'start_ban_time' => now(),
+            'end_ban_time' => now()->addMinutes(20)
         ];
     }
 }
