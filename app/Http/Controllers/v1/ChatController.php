@@ -14,7 +14,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        //
+        return Chat::all();
     }
 
     /**
