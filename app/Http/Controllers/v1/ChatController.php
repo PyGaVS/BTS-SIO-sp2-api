@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChatRequest;
 use App\Http\Requests\UpdateChatRequest;
 use App\Models\Chat;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ChatController extends Controller
 {
@@ -14,7 +16,9 @@ class ChatController extends Controller
      */
     public function index()
     {
-        return Chat::all();
+        $user = Auth::user();
+        $chats = $user->chat()->get();
+        return response()->json($chats);
     }
 
     /**

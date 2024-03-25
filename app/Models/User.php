@@ -7,6 +7,7 @@ use Database\Seeders\MessageSeeder;
 use Database\Seeders\SanctionSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -55,9 +56,9 @@ class User extends Authenticatable
         return $this->belongsTo(Region::class);
     }
 
-    public function chat() : HasMany
+    public function chat() : BelongsToMany
     {
-        return $this->hasMany(Chat::class);
+        return $this->belongsToMany(Chat::class, 'chat_user', 'user_id', 'chat_id');
     }
 
     public function certification_request() : BelongsTo
