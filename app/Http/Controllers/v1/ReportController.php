@@ -14,7 +14,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        return Report::all();
     }
 
     /**
@@ -38,7 +38,7 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        //
+
     }
 
     /**
