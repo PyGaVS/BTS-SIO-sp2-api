@@ -21,20 +21,21 @@ class AuthController extends BaseController
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
+            'region' => 'required'
         ]);
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
-
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        $input['kindness_score'] = 100;
         Log::debug('inputs :', $input);
         $user = User::factory()->create($input);
         $success['token'] =  $user->createToken('MyApp')->plainTextToken;
         $success['username'] =  $user->username;
 
-        return $this->sendResponse($success, 'UserController register successfully.');
+        return $this->sendResponse($success, "$user->username registered successfully.");
     }
 
 

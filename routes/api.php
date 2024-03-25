@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\v1\AuthController;
+use App\Http\Controllers\v1;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +22,14 @@ Route::prefix('v1')->group(function () {
 //    Route::post('operation,' ,[V1\OperationController::class, 'create'])->name('operation');
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::apiResource('region', \App\Http\Controllers\v1\RegionController::class);
-        Route::get('user/{user:id}', [\App\Http\Controllers\v1\UserController::class, 'show']);
-        Route::apiResource('certification_request', \App\Http\Controllers\v1\CertificationRequestController::class);
-        Route::apiResource('chat', \App\Http\Controllers\v1\ChatController::class);
-        Route::apiResource('message', \App\Http\Controllers\v1\MessageController::class);
-        Route::apiResource('sanction', \App\Http\Controllers\v1\SanctionController::class);
-        Route::apiResource('report', \App\Http\Controllers\v1\ReportController::class);
+        Route::apiResource('region', v1\RegionController::class);
+        Route::get('user', [v1\UserController::class, 'account']);
+        Route::get('user/{user:id}', [v1\UserController::class, 'show']);
+        Route::apiResource('certification_request', v1\CertificationRequestController::class);
+        Route::apiResource('chat', v1\ChatController::class);
+        Route::apiResource('message', v1\MessageController::class);
+        Route::apiResource('sanction', v1\SanctionController::class);
+        Route::apiResource('report', v1\ReportController::class);
     });
 });
 
