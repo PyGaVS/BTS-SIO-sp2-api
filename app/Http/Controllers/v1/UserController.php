@@ -17,6 +17,7 @@ class UserController extends Controller
     {
         $user->region = Region::find($user->region);
         $user->nb_followers = count($user->followers()->get());
+        $user->nb_following = count($user->following()->get());
         return response()->json($user);
     }
 
@@ -24,7 +25,9 @@ class UserController extends Controller
         $user = $request->user();
         $user->region = Region::find($user->region);
         $user->nb_followers = count($user->followers()->get());
+        $user->nb_following = count($user->following()->get());
         $user->followers = $user->followers()->get();
+        $user->following = $user->following()->get();
         return response()->json($user);
     }
 

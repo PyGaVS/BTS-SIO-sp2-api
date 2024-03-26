@@ -38,7 +38,8 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-
+        $report->message = $report->message()->get();
+        return response()->json($report);
     }
 
     /**
