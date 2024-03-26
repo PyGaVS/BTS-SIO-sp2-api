@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
 
         $users = [$usersio, ...$users];
 
-        foreach( range(1, rand(30, 70)) as $i){
+        foreach( range(1, rand(700, 1000)) as $i){
             $user = $users[rand(0, count($users)-1)];
             $followed_user = $users[rand(0, count($users)-1)];
             DB::table('user_follow_user')->upsert([

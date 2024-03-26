@@ -76,13 +76,8 @@ class User extends Authenticatable
         return $this->belongsTo(Message::class);
     }
 
-//    public function () : BelongsTo
-//    {
-//        return $this->belongsTo();
-//    }
-//
-//    public function () : BelongsTo
-//    {
-//        return $this->belongsTo();
-//    }
+    public function followers() : BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_follow_user', 'followed_user_id', 'user_id');
+    }
 }

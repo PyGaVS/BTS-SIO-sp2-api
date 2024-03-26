@@ -24,6 +24,7 @@ Route::prefix('v1')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         Route::apiResource('region', v1\RegionController::class);
         Route::get('user', [v1\UserController::class, 'account']);
+        Route::get('users', [v1\UserController::class, 'index']);
         Route::get('user/{user:id}', [v1\UserController::class, 'show']);
         Route::apiResource('certification_request', v1\CertificationRequestController::class);
         Route::apiResource('chat', v1\ChatController::class);
