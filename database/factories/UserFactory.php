@@ -32,7 +32,7 @@ class UserFactory extends Factory
             'username' => $name,
             'email' => $name.'@gmail.'.strtolower($region->short_name),
             'email_verified_at' => now(),
-            'region' => $region->id,
+            'region_id' => $region->id,
             'password' => $password,
             'remember_token' => Str::random(10),
             'kindness_score' => rand(50, 300)

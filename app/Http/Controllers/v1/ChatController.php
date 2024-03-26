@@ -42,7 +42,20 @@ class ChatController extends Controller
      */
     public function show(Chat $chat)
     {
-        //
+        //dd($chat->messages());
+        $chat = Auth::user()->chat()->where('id', $chat->id)->first();
+        $array = [
+            "id" => $chat->id,
+            "name" => $chat->name,
+            "created_at" => $chat->created_at
+        ];
+        $chat->messages = $chat->messages()->get();
+        if ($chat){
+            return $chat;
+        } else {
+            abort(403);
+        }
+
     }
 
     /**

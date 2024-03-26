@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('kindness_score');
-            $table->foreignId('region')->constrained();
+            $table->foreignId('region_id')->constrained();
             $table->rememberToken();
             $table->timestamps();
         });

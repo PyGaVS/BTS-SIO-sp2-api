@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'username' => 'usersio',
             'email' => 'test@example.com',
             'password' => '12345678',
-            'region' => 78,
+            'region_id' => 78,
             'kindness_score' => 300
         ]);
 
