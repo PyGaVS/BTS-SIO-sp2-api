@@ -29,7 +29,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('certification_request', v1\CertificationRequestController::class);
         Route::apiResource('chat', v1\ChatController::class);
         Route::apiResource('message', v1\MessageController::class);
-        Route::apiResource('sanction', v1\SanctionController::class);
+        Route::apiResource('sanction', v1\SanctionController::class);      //|[ŧ]
         Route::apiResource('report', v1\ReportController::class);
     });
 });

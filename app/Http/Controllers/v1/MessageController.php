@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
+use App\Models\User;
 
 class MessageController extends Controller
 {
@@ -63,5 +64,14 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         //
+    }
+
+    public function roleTestMessage(User $user)
+    {
+        if(auth()->user()->can('viewAny', Message::class)) {
+            return Message::all();
+        } else {
+            return abort(405);
+        }
     }
 }
