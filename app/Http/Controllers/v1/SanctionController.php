@@ -14,7 +14,7 @@ class SanctionController extends Controller
      */
     public function index()
     {
-        //
+        return Sanction::with('report')->get();
     }
 
     /**

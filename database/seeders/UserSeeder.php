@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $roleModerator=Role::findByName('selenium-moderator', 'api');
         $usersio = User::factory()->create([
             'username' => 'usersio',
             'email' => 'test@example.com',
@@ -22,6 +24,8 @@ class UserSeeder extends Seeder
             'region_id' => 78,
             'kindness_score' => 300
         ]);
+
+        $usersio->assignRole($roleModerator);
 
         $users = User::factory(49)->create();
 
