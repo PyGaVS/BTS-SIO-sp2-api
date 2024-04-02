@@ -18,6 +18,9 @@ class ChatController extends Controller
     {
         $user = Auth::user();
         $chats = $user->chat()->get();
+        foreach($chats as $chat){
+            $chat->last_message = $chat->messages->last();
+        }
         return response()->json($chats);
     }
 
