@@ -46,7 +46,7 @@ class ChatController extends Controller
         $chat = Auth::user()->chat()->where('id', $chat->id)->first();
         if ($chat){
             $chat->messages = $chat->messages()->orderBy('created_at')->get();
-            $chat->lastMessage = $chat->messages->last();
+            $chat->last_message = $chat->messages->last();
             return response()->json($chat);
         } else {
             abort(403);
