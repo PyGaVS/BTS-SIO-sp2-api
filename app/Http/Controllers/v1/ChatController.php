@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateChatRequest;
 use App\Models\Chat;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ChatController extends Controller
 {
@@ -19,7 +20,7 @@ class ChatController extends Controller
         $user = Auth::user();
         $chats = $user->chat()->get();
         foreach($chats as $chat){
-            $chat->last_message = $chat->messages->last();
+            $chat->last_message = DB::table('messages')->where('chat_id', $chat->id)->orderBy('created_at')->get()->last();
         }
         return response()->json($chats);
     }
