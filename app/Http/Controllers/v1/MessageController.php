@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Message;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -23,7 +24,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -31,7 +32,20 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        //
+        if(Auth::user()->getAuthIdentifier() != $request['user_id']){
+            abort(403);
+        }
+        $chat = Auth::user()->chat()->where('id', $request['chat_id'])->first();
+        if(!$chat){
+            abort(403);
+        }
+        $message = Message::create([
+            'user_id' => Auth::user()->getAuthIdentifier(),
+            'chat_id' => $chat->id,
+            'content' => $request['content'],
+        ]);
+
+        return response()->json($message, 201);
     }
 
     /**

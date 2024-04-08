@@ -5,7 +5,10 @@ namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use App\Models\Chat;
+use App\Models\Message;
 use App\Models\Report;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -30,7 +33,29 @@ class ReportController extends Controller
      */
     public function store(StoreReportRequest $request)
     {
-        //
+        $message = Message::get()->where('id', $request['message_id'])->first();
+        $chat =  Auth::user()->chat()->where('id', $message->chat_id)->first();
+
+        if(!$chat){
+            abort(403);
+        }
+
+        $importance_rate = 1;
+        if(substr_count($message->content, 'kys')){
+            $importanceRate = 4;
+        }
+
+        $report = Report::create([
+            'purpose' => $request['purpose'],
+            'content' => $request['content'],
+            'message_id' => $message->id,
+            'importance_rate' => $importance_rate
+        ]);
+
+        $report['messgae'] = $message;
+
+        return response()->json($report, 201);
+
     }
 
     /**

@@ -14,6 +14,12 @@ class Message extends Model
         'updated_at',
     ];
 
+    protected $fillable = [
+        'user_id',
+        'content',
+        'chat_id',
+    ];
+
     public function user() : BelongsTo  {
         return $this->belongsTo(User::class);
     }

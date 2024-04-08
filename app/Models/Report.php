@@ -17,6 +17,13 @@ class Report extends Model
         'updated_at',
     ];
 
+    protected $fillable = [
+        'purpose',
+        'content',
+        'importance_rate',
+        'message_id'
+    ];
+
     public function message() : BelongsTo  {
         return $this->belongsTo(Message::class);
     }
