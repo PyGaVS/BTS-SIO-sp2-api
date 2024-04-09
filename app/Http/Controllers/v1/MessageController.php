@@ -45,6 +45,7 @@ class MessageController extends Controller
             'content' => $request['content'],
         ]);
 
+        $message['user'] = Auth::user();
         return response()->json($message, 201);
     }
 
