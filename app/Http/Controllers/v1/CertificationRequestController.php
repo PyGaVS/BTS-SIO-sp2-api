@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCerificationRequestRequest;
+use App\Http\Requests\StoreCertificationRequestRequest;
 use App\Http\Requests\UpdateCerificationRequestRequest;
 use App\Models\CertificationRequest;
 
@@ -28,7 +28,7 @@ class CertificationRequestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCerificationRequestRequest $request)
+    public function store(StoreCertificationRequestRequest $request)
     {
         //
     }
