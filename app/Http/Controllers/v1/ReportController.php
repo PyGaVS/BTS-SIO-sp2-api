@@ -47,7 +47,7 @@ class ReportController extends Controller
 
         $report = Report::create([
             'purpose' => $request['purpose'],
-            'content' => $request['content'],
+            'content' => $request['content'] ?? '',
             'message_id' => $message->id,
             'importance_rate' => $importance_rate
         ]);
