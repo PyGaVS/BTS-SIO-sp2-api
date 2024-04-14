@@ -52,7 +52,7 @@ class ReportController extends Controller
             'importance_rate' => $importance_rate
         ]);
 
-        $report['messgae'] = $message;
+        $report['message'] = $message;
 
         return response()->json($report, 201);
 
