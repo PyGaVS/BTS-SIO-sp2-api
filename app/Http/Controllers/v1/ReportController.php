@@ -33,7 +33,7 @@ class ReportController extends Controller
      */
     public function store(StoreReportRequest $request)
     {
-        $message = Message::get()->where('id', $request['message_id'])->first();
+        $message = Message::with('user')->where('id', $request['message_id'])->first();
         $chat =  Auth::user()->chat()->where('id', $message->chat_id)->first();
 
         if(!$chat){
