@@ -19,7 +19,8 @@ class MessageSeeder extends Seeder
         foreach($messages as $message){
             DB::table('chat_user')->upsert([
                 'chat_id' => $message->chat_id,
-                'user_id' => $message->user_id
+                'user_id' => $message->user_id,
+                'created_at' => now(),
             ], ['chat_id', 'user_id']);
         }
     }

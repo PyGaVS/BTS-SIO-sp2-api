@@ -14,6 +14,10 @@ class Chat extends Model
     protected $hidden = [
         'updated_at',
     ];
+
+    protected $fillable = [
+        'name'
+    ];
     public function user() : BelongsToMany {
         return $this->belongsToMany(User::class);
     }
