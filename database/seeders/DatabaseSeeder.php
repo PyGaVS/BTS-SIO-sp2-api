@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
              CertificationRequestSeeder::class,
              ChatSeeder::class,
              MessageSeeder::class,
-             ReportPurposeSeeder::class,
              ReportSeeder::class,
              SanctionSeeder::class,
          ]);

@@ -23,8 +23,17 @@ class ReportFactory extends Factory
             $importanceRate = 4;
         }
 
+        $purposes = [
+            'insult',
+            'spam',
+            'sensitive data',
+            'threat',
+            'sexual assault',
+            'political opinion'
+        ];
+
         return [
-            'report_purpose_id' => rand(1, 6),
+            'purpose' => $purposes[rand(0, count($purposes)-1)],
             'message_id' => $message->id,
             'importance_rate' => $importanceRate ?? 1
         ];
