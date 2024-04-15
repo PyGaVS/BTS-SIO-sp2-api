@@ -17,7 +17,11 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return Report::all();
+//        return Report::with(['message.user', 'report_purpose'])->get();
+        return Report::leftJoin('sanctions', 'report_id', '=', 'reports.id')
+            ->select('reports.*')
+            ->where('sanctions.report_id')
+            ->with(['message.user'])->get();
     }
 
     /**

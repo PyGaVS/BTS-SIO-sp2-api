@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sanctions', function (Blueprint $table) {
             $table->id();
             $table->integer('kindness_score');
-            $table->datetime('start_ban_time');
-            $table->datetime('end_ban_time');
+            $table->datetime('start_ban_time')->default(date(now()));
+            $table->datetime('end_ban_time')->default(date(now()));
             $table->foreignId('user_id')->constrained();
             $table->foreignId('report_id')->constrained();
             $table->timestamps();

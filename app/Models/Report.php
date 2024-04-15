@@ -28,7 +28,14 @@ class Report extends Model
         return $this->belongsTo(Message::class);
     }
 
-        public function sanction() : HasMany {
+    public function sanction() : HasMany {
         return $this->hasMany(Sanction::class);
     }
+
+    public function report_purpose() : BelongsTo {
+        return $this->belongsTo(ReportPurpose::class);
+    }
+
+
+
 }
