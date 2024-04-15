@@ -47,8 +47,8 @@ class ChatController extends Controller
 
         foreach($users as $user){
             DB::table('chat_user')->insert([
-               'user_id' => $user,
-               'chat_id' => $chat->id,
+                'user_id' => $user,
+                'chat_id' => $chat->id,
                 'created_at' => now()
             ]);
         }
