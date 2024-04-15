@@ -31,7 +31,7 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function index(){
-        return response()->json(User::all());
+    public function index(string $search){
+        return response()->json(User::where('username', 'like', "%$search%")->get());
     }
 }
