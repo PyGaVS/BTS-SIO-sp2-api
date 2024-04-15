@@ -31,7 +31,8 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function index(string $search){
+    public function index(string $search=''){
+
         $firstUsers = User::where('username', 'like', "$search%")->get();
         $lastUsers = User::where('username', 'like', "%$search%")->where('username', 'not like', "$search%")->get();
         return response()->json([...$firstUsers, ...$lastUsers]);
