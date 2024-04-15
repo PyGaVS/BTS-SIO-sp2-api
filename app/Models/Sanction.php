@@ -11,6 +11,15 @@ class Sanction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'kindness_score',
+        'user_id',
+        'start_ban_time',
+        'end_ban_time',
+        'report_id',
+
+    ];
+
     protected $hidden = [
         'created_at',
         'updated_at',

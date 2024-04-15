@@ -30,7 +30,15 @@ class SanctionController extends Controller
      */
     public function store(StoreSanctionRequest $request)
     {
-        //
+        $sanction = Sanction::create([
+            'kindness_score' => $request['kindness_score'],
+            'start_ban_time' => date(now()),
+            'end_ban_time' => $request['end_ban_time'],
+            'user_id' => $request['user_id'],
+            'report_id' => $request['report_id'],
+        ]);
+        return response()->json($sanction, 201);
+
     }
 
     /**

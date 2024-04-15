@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Message;
 use App\Models\Report;
+use App\Models\ReportPurpose;
 use App\Models\Sanction;
 use Database\Factories\ReportFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +17,7 @@ class ReportSeeder extends Seeder
      */
     public function run(): void
     {
-        $reports = Report::factory(15)->create();
+        $reports = Report::factory(100)->create();
         foreach($reports as $report){
             $message = Message::find($report->message_id);
             if($report->importance_rate >= 4){

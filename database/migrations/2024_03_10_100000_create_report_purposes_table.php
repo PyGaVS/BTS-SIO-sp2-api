@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('report_purposes', function (Blueprint $table) {
             $table->id();
-            $table->string('purpose')->default('');
-            $table->string('content')->default('');
-            $table->integer('importance_rate')->default(1);
-            $table->foreignId('message_id')->constrained();
+            $table->string('fr');
+            $table->string('en');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('report_purposes');
     }
 };
