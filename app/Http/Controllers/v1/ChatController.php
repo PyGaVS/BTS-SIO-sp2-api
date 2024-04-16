@@ -46,11 +46,11 @@ class ChatController extends Controller
         ]);
 
         foreach($users as $user){
-            DB::table('chat_user')->insert([
-                'user_id' => $user,
-                'chat_id' => $chat->id,
-                'created_at' => now()
-            ]);
+                DB::table('chat_user')->upsert([
+                    'user_id' => $user,
+                    'chat_id' => $chat->id,
+                    'created_at' => now()
+                ], ['user_id', 'chat_id']);
         }
 
         return response()->json($chat);
